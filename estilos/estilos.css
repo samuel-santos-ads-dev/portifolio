@@ -1,0 +1,111 @@
+@charset "UTF-8";
+
+/* 
+  
+*/
+
+:root {
+    /*Variáveis para cores*/
+  --fundo-principal: #f5f5ff;
+  --texto: #222222;
+  --texto-inverso: #ffffff;
+  --destaque: #0077ff;
+  --destaque-inverso: #66bbff;
+  --fundo-card: #ffffff;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Helvetica, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    line-height: 1.5em;
+    background-color: var(--fundo-principal);
+    color: var(--texto);
+}
+
+header {
+    padding: 10px;
+    background-color: var(--destaque);
+    color: var(--texto);
+    display: flex;
+    justify-content: flex-end;
+    align-content: center;
+}
+
+#menu ul {
+    list-style: none;
+    display: flex;
+    gap: 10px;
+    
+}
+
+#menu a {
+    text-decoration: none;
+    color: var(--texto-inverso);
+    font-weight: 600;
+    padding: 12px 15px;
+    border-radius: 7px;
+    transition: background-color 500ms, color 500ms;
+}
+
+#menu a:hover {
+    background-color: var(--destaque-inverso);
+    color: var(--destaque);
+}
+
+main{
+    display: grid;
+    grid-template-columns: auto 90vw auto;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+#ficha {
+    background-color: var(--fundo-card);
+    padding: 20px;
+    border-radius: 8px;
+    grid-column: 2;
+}
+
+#ficha .foto {
+    display: block;
+    margin: auto;
+    width: 200px;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    border-radius: 50%;
+    border: 5px solid var(--fundo-card);
+    outline: 5px solid var(--destaque);
+    margin-bottom: 15px;
+}
+
+#ficha h1 {
+    font-size: 1.6em;
+    text-align: center;
+    color: var(--destaque);
+    margin: 15px 0px;
+}
+
+#social {
+    font-size: 1.6em;
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+}
+
+#social a {
+    color: var(--destaque);
+    transition: color 500ms, transform 300ms;
+}
+
+#social a:hover {
+    color: var(--destaque-inverso);
+    transform: translateY(-6px);
+    
+}
