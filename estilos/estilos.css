@@ -20,12 +20,35 @@
     box-sizing: border-box;
 }
 
+body.escuro {
+    --fundo-principal: #222222;
+    --texto: #e0e0e0;
+    --texto-inverso: #333333;
+    --destaque: #550055;
+    --destaque-inverso: #6e2c6e;
+    --fundo-card: #444444;
+}
+
+body.escuro #menu a, body.escuro footer a {
+    color: var(--texto);
+}
+
+body.escuro #menu a:hover {
+    background-color: var(--destaque-inverso);
+    color: var(--destaque);
+}
+
+body.escuro footer a:hover {
+    color: var(--destaque-inverso);
+}
+
 body {
     font-family: Helvetica, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     line-height: 1.5em;
     background-color: var(--fundo-principal);
     color: var(--texto);
     font-size: 1.4em;
+    transition: background-color 800ms, color 800ms;
 }
 
 header {
@@ -35,6 +58,9 @@ header {
     display: flex;
     justify-content: flex-end;
     align-content: center;
+    position: sticky;
+    top: 0px;
+    z-index: 1;
 }
 
 #menu ul {
@@ -60,7 +86,7 @@ header {
 
 main{
     display: grid;
-    grid-template-columns: auto 90vw auto;
+    grid-template-columns: 1fr 90vw 1fr;
     gap: 20px;
     margin-top: 20px;
 }
@@ -92,7 +118,7 @@ main{
 }
 
 #social {
-    font-size: 1.6em;
+    font-size: 1.1em;
     margin-top: 15px;
     display: flex;
     align-items: center;
@@ -263,27 +289,43 @@ footer a:hover {
 }
 
 @media screen and (min-width: 768px) {
+    main {
+        grid-template-columns: auto 300px 1fr auto;
+    }
+
+    #ficha {
+        grid-column: 2 / 3;
+        height: fit-content;
+        position: sticky;
+        top: 65px;
+    }
+
+    #detalhes {
+        grid-column: 3 /4;
+    }
+
     #skill-conteiner {
-        grid-template-columns: auto auto;
+        grid-template-columns: 1fr 1fr;
     }
 
     #formacao-conteiner {
         flex-direction: row-reverse;
     }
+}
 
+@media screen and (min-width: 992px) {
     #projeto-conteiner .projeto {
         flex-direction: row-reverse;
         justify-content: space-between;
     }
 
     #projeto-conteiner .projeto-info {
-        max-width: 70%;
+        max-width: 50%;
     }
 
-    #projeto-conteiner .foto {
-        max-width: 30%;
+    #projeto-conteiner a {
         aspect-ratio: 1/1;
-        max-height: 150px;
-        align-self: center;
+        max-width: 50%;
+        max-height: 250px;
     }
 }
